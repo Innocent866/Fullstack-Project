@@ -16,7 +16,7 @@ const NewUser = () => {
   async function handleSubmit (e) {
     e.preventDefault()
     try{
-        const data = await axios.post('http://localhost:8080/api/user',{
+        const data = await axios.post('https://goal-z8dh.onrender.com/api/user',{
         name,
         email,
         profession,
@@ -30,9 +30,10 @@ const NewUser = () => {
       }
     }catch(error){
       console.log(error);
+      alert(error)
     }
   }
-
+  document.title = 'New-Users || Page'
   return (
     <main className="container pt-4">
       <div className="row d-flex justify-content-evenly">
@@ -40,7 +41,7 @@ const NewUser = () => {
           <Form className="p-3 shadow-lg">
             <fieldset>
               <Form.Group className="mb-3">
-                <Form.Label htmlFor="disabledTextInput" className="fw-bold">
+                <Form.Label htmlFor="e" className="fw-bold">
                   Name:
                 </Form.Label>
                 <Form.Control

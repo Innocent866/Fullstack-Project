@@ -4,6 +4,7 @@ import Navbar from './Layout/Navbar'
 import NewUser from './pages/NewUser'
 import AllUser from './pages/AllUser'
 import Home from './pages/Home'
+import SingleUser from './pages/SingleUser'
 
 const App = () => {
   return (
@@ -12,8 +13,9 @@ const App = () => {
     <Navbar/>
     <Routes>
       <Route path='/' element= {<Home/>} />
-      <Route path='New' element= {<NewUser/>} />
-      <Route path='All' element= {<AllUser/>} />
+      <Route path='/NewUser' element= {<NewUser/>} />
+      <Route path='/AllUser' element= {<AllUser/>} />
+      <Route path='/SingleUser/:userId' element= {<SingleUser/>} />
     </Routes>
     </BrowserRouter>
     </>

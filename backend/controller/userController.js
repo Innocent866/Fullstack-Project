@@ -4,7 +4,7 @@ const USER_ROLE = require('../model/userRoleModel');
 
 const create_user =  async(req,res)=>{
     try{
-        const user = await USER_ROLE.create(req.body);
+        await USER_ROLE.create(req.body);
         res.status(201).json({msg:"user crated successfully"})
     }catch(error){
         console.log(error);
@@ -16,7 +16,7 @@ const create_user =  async(req,res)=>{
 const getAll_users = async(req,res)=>{
     try{
        const users = await USER_ROLE.find({})
-       if(users.length < 1) return res.json({msg:"no user found"})
+       if(users.length < 1) return res.status(200).json({users})
         res.status(200).json({users})
     }catch(error){
         console.log(error);
@@ -55,6 +55,7 @@ const delete_user = async(req,res)=>{
     }
 }
 
+// single user, S 
 const single_user = async(req,res)=>{
     try{
         const {id:userId} = req.params
